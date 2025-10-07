@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEB CARS</title>
+    <style>
+        /* Basic Reset and Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links li a {
+            color: white;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px; /* Account for fixed header */
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Cars Section */
+        .cars {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+        .car-image {
+            width: 100%;
+            height: 200px;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #666;
+        }
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .car-info {
+            padding: 1.5rem;
+        }
+        .car-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        .car-info p {
+            margin-bottom: 1rem;
+        }
+        .price {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Rental Form */
+        .rental-form {
+            padding: 4rem 2rem;
+            background: #f9f9f9;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            width: 100%;
+            background: #ff6b35;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple mobile menu - could be enhanced with JS */
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">LEB CARS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cars">Cars</a></li>
+                <li><a href="#rental">Rent Now</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Welcome to LEB CARS</h1>
+            <p>Drive your dreams with our premium fleet. Affordable rates, reliable service.</p>
+            <a href="#rental" class="btn">Book a Car</a>
+        </div>
+    </section>
+
+    <!-- Cars Section -->
+    <section id="cars" class="cars">
+        <h2 class="section-title">Our Fleet</h2>
+        <div class="cars-grid">
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/2022_Toyota_Corolla_%28E210%29_1.8_Sedan_%28Singapore%29_front_view_01.jpg/800px-2022_Toyota_Corolla_%28E210%29_1.8_Sedan_%28Singapore%29_front_view_01.jpg" alt="2022 Toyota Corolla compact sedan">
+                </div>
+                <div class="car-info">
+                    <h3>Toyota Corolla</h3>
+                    <p>Perfect for city driving. Fuel-efficient and comfortable.</p>
+                    <div class="price">$45/day</div>
+                </div>
+            </div>
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/2020_Ford_Explorer_ST_4WD_%28facelift%29.jpg/800px-2020_Ford_Explorer_ST_4WD_%28facelift%29.jpg" alt="2020 Ford Explorer SUV">
+                </div>
+                <div class="car-info">
+                    <h3>Ford Explorer</h3>
+                    <p>Spacious SUV for family trips or adventures.</p>
+                    <div class="price">$75/day</div>
+                </div>
+            </div>
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/BMW_330i_%28G20%29_IMS_2020_01.jpg/800px-BMW_330i_%28G20%29_IMS_2020_01.jpg" alt="2020 BMW 3 Series luxury sedan">
+                </div>
+                <div class="car-info">
+                    <h3>BMW 3 Series</h3>
+                    <p>Luxury sedan with top performance and style.</p>
+                    <div class="price">$120/day</div>
+                </div>
+            </div>
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dacia_Logan_III_%28facelift%29_01.jpg/800px-Dacia_Logan_III_%28facelift%29_01.jpg" alt="2022 Dacia Logan economical sedan">
+                </div>
+                <div class="car-info">
+                    <h3>Dacia Logan Model 2022</h3>
+                    <p>Reliable and economical sedan for everyday use. Great value for budget-conscious drivers.</p>
+                    <div class="price">$35/day</div>
+                </div>
+            </div>
+            <!-- New Famous/Popular Cars in Morocco -->
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Dacia_Sandero_Stepway_III_%28facelift%29_01.jpg/800px-Dacia_Sandero_Stepway_III_%28facelift%29_01.jpg" alt="2022 Dacia Sandero Stepway hatchback">
+                </div>
+                <div class="car-info">
+                    <h3>Dacia Sandero Stepway</h3>
+                    <p>Versatile and rugged hatchback, a favorite in Morocco for urban and light off-road use. Affordable and durable.</p>
+                    <div class="price">$30/day</div>
+                </div>
+            </div>
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Renault_Clio_V_%28facelift%29_01.jpg/800px-Renault_Clio_V_%28facelift%29_01.jpg" alt="2020 Renault Clio compact hatchback">
+                </div>
+                <div class="car-info">
+                    <h3>Renault Clio</h3>
+                    <p>Compact and stylish hatchback, one of the best-sellers in Morocco. Ideal for city commuting with modern features.</p>
+                    <div class="price">$40/day</div>
+                </div>
+            </div>
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Peugeot_301_%28facelift%29_01.jpg/800px-Peugeot_301_%28facelift%29_01.jpg" alt="2021 Peugeot 301 sedan">
+                </div>
+                <div class="car-info">
+                    <h3>Peugeot 301</h3>
+                    <p>Spacious family sedan popular across North Africa, including Morocco. Comfortable for long drives on highways.</p>
+                    <div class="price">$50/day</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Form -->
+    <section id="rental" class="rental-form">
+        <div class="form-container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Book Your Rental</h2>
+            <form id="rentalForm">
+                <div class="form-group">
+                    <label for="pickupDate">Pickup Date:</label>
+                    <input type="date" id="pickupDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="returnDate">Return Date:</label>
+                    <input type="date" id="returnDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="carType">Car Type:</label>
+                    <select id="carType" required>
+                        <option value="">Select a car</option>
+                        <option value="corolla">Toyota Corolla - $45/day</option>
+                        <option value="explorer">Ford Explorer - $75/day</option>
+                        <option value="bmw">BMW 3 Series - $120/day</option>
+                        <option value="logan">Dacia Logan 2022 - $35/day</option>
+                        <option value="sandero">Dacia Sandero Stepway - $30/day</option>
+                        <option value="clio">Renault Clio - $40/day</option>
+                        <option value="peugeot301">Peugeot 301 - $50/day</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2023 LEB CARS. All rights reserved. | Contact: info@lebcars.com | Phone: (123) 456-7890</p>
+    </footer>
+
+    <script>
+        // Simple form submission handler (for demo - in real app, send to server)
+        document.getElementById('rentalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Booking submitted! Thank you for choosing LEB CARS.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
